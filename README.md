@@ -1,6 +1,6 @@
 voxel-print
 ===========
-3D print stuff in voxel.js using ShapeWays
+3D print stuff in voxel.js using [ShapeWays](http://www.shapeways.com/)
 
 Installation
 ============
