@@ -1,6 +1,6 @@
 {
   "name": "voxel-print",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "3D print voxel models via shapeways",
   "main": "index.js",
   "directories": {
