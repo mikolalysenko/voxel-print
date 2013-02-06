@@ -6,7 +6,7 @@ Installation
 ============
 Just do:
 
-    npm install voxel-js
+    npm install voxel-print
 
 Usage
 =====

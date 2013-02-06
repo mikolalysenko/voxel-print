@@ -71,7 +71,7 @@ function assembleMesh(voxels) {
         f[1]+vertex_offset,
         f[2]+vertex_offset,
         f[3]+vertex_offset]);
-      face_colors.push(palette[f[4]]);
+      face_colors.push(palette[f[4] % palette.length]);
     }
   }
   
