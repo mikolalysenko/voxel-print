@@ -1,0 +1,34 @@
+{
+  "name": "voxel-print",
+  "version": "0.0.0",
+  "description": "3D print voxel models via shapeways",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "shapeways": "~0.5.3",
+    "voxel": "~0.1.4"
+  },
+  "devDependencies": {
+    "optimist": "~0.3.5",
+    "voxel-engine": "~0.5.3"
+  },
+  "scripts": {
+    "test": "node test/test_print.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mikolalysenko/voxel-print.git"
+  },
+  "keywords": [
+    "3d",
+    "print",
+    "shapeways",
+    "voxels"
+  ],
+  "author": "Mikola Lysenko",
+  "license": "BSD",
+  "gitHead": "e522fd74738d158a85e677c31ed833138ad7ef76",
+  "readmeFilename": "README.md"
+}

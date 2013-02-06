@@ -43,5 +43,13 @@ This method returns a callable object that you can use to upload voxel models to
 ### `lpr3d(voxels[, options], callback(err, results))`
 Once you've created a connection with the above method, you can invoke it by calling it directly.  To do this, you can pass in the following arguments:
 
-* `voxels`: An instance 
+* `voxels`: An instance of a voxel.js engine
+* `options`: An optional object with paramters you can pass to shapeways
+* `callback(err, results)`: Returns the resulting model object or an error if things broke.  `results` is a structure that has two fields:
+    * `model_id`: The shapeways model id
+    * `url`: A url where you can view/buy the model
 
+
+Credits
+=======
+(c) 2013 Mikola Lysenko. BSD
