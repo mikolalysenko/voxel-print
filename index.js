@@ -1,6 +1,18 @@
 var shapeways = require("shapeways")
   , voxel     = require("voxel");
 
+var palette = [
+  [0, 0, 0],
+  [0, 1, 0],
+  [1, 0, 0],
+  [0, 0, 1],
+  [1, 1, 0],
+  [1, 0, 1],
+  [0, 1, 1],
+  [0, 0, 0],
+  [1, 1, 1]
+];
+
 //Creates a promise
 function makePromise(input_cb) {
   var completed = false
@@ -38,12 +50,12 @@ function assembleMesh(voxels) {
   
   for(var id in voxels.chunks) {
     var chunk       = voxels.chunks[id]
-    var chunk_coord = id.split("|");
+    var chunk_coord = chunk.position;
     var shift       = new Array(3);
     for(var i=0; i<3; ++i) {
-      shift[i]      = (chunk_coord[i] | 0) * voxels.chunkSize[i];
+      shift[i]      = chunk_coord[i] * voxels.chunkSize;
     }
-    var mesh          = voxel.meshers.greedy(chunk, voxels.chunkSize);
+    var mesh        = voxel.meshers.greedy(chunk.voxels, [voxels.chunkSize, voxels.chunkSize, voxels.chunkSize]);
     var vertex_offset = positions.length;
     for(var i=0; i<mesh.vertices.length; ++i) {
       var tmp = mesh.vertices[i];
@@ -59,7 +71,7 @@ function assembleMesh(voxels) {
         f[1]+vertex_offset,
         f[2]+vertex_offset,
         f[3]+vertex_offset]);
-      face_colors.push(f[4]);
+      face_colors.push(palette[f[4]]);
     }
   }
   
@@ -85,10 +97,12 @@ function print(connection_promise, voxels, options, cb) {
   
   //Build parameters
   var params = { };
+  params.units = "mm";
   for(var id in options) {
     params[id] = options[id];
   }
   params.model_json = assembleMesh(voxels);
+  
   
   //Connect and upload mesh
   connection_promise(function(err, conn) {
